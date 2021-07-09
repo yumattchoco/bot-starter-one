@@ -10,7 +10,7 @@
 
 	$events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
 
-	log('token: '.getenv('CHANNEL_ACCESS_TOKEN'));
+	
 	foreach ($events as $event) {
 		replyTextMessage($bot, $event->getReplyToken(), 'TextMessage');
 	}
@@ -22,7 +22,7 @@
 		$response = $bot->replyMessage($replyToken, new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text));
 
 		if (!$response->isSucceeded()) {
-			error_log('Failed! '.$response->getHTTPStatus().' '.$response->getRawBody());
+			error_log('Failed! '.$response->getHTTPStatus().' '.$response->getRawBody().'>>>token: '.getenv('CHANNEL_ACCESS_TOKEN'));
 		}
 	}
 
