@@ -5,9 +5,9 @@
 
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => getenv('CHANNEL_SECRET')]);
 
-	//$signature = $_SERVER['HTTP_'.\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
+	$signature = $_SERVER['HTTP_'.\LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 
-$events = $bot->parseEventRequest(/*file_get_contents('php://input'), $signature*/);
+	$events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
 
 	foreach ($events as $event) {
 		replyTextMessage($bot, $event->getReplyToken(), 'TextMessage');
