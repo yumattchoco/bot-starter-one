@@ -1,7 +1,7 @@
 <?php
 	require_once __DIR__ . '/vendor/autoload.php';
 
-	$httpClient = new Line\Linebot\HTTPClient\curlHTTPClient(getenv('CHANNEL_ACCESS_TOKEN'));
+	$httpClient = new LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv('CHANNEL_ACCESS_TOKEN'));
 
 	$bot = new LINE\LINEBot($httpClient, ['channelSecret' => getenv('CHANNEL_SECRET')]);
 
