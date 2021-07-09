@@ -10,6 +10,7 @@
 
 	$events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
 
+	error_log('token: '.getenv('CHANNEL_ACCESS_TOKEN'));
 	foreach ($events as $event) {
 		replyTextMessage($bot, $event->getReplyToken(), 'TextMessage');
 	}
