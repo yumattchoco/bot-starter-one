@@ -19,7 +19,7 @@
 
 		$response = $bot->replyMessage($replyToken, new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text));
 
-		if (!$response->is_Succeeded()) {
+		if (!$response->isSucceeded()) {
 			error_log('Failed!'.$response->getHTTPStatus.' '.$response->getRawBody());
 		}
 	}
