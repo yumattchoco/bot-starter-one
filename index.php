@@ -17,7 +17,7 @@
 
 	function replyTextMessage($bot, $replyToken, $text) {
 
-		$response = $bot->replyMessage($replyToken, new \LINE\LINEbot\MessageBuilder\TextMessageBuilder($text));
+		$response = $bot->replyMessage($replyToken, new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text));
 
 		if (!$response->is_succeeded()) {
 			error_log('Failed!'.$response->getHTTPStatus.' '.$response->getRawBody());
